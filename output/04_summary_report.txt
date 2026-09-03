@@ -1,0 +1,34 @@
+============================================================
+BACTERIAL GWAS — CANDIDATE GENE SUMMARY REPORT
+============================================================
+
+Total SNPs tested:              719
+Genomic inflation (λ_GC):       0.703
+Bonferroni significant:         0
+FDR significant:                0
+
+Top candidate SNPs:             50
+Causal SNPs recovered:          2 / 8 (25%)
+
+Top 5 Associated SNPs:
+--------------------------------------------------
+             SNP_00814  p=1.22e-03  OR=30.53 [CAUSAL]
+             SNP_00969  p=1.69e-03  OR=0.11 [CAUSAL]
+             SNP_00385  p=5.08e-03  OR=0.13 [CAUSAL]
+             SNP_00402  p=7.32e-03  OR=8.92 [CAUSAL]
+             SNP_00756  p=9.15e-03  OR=0.15 [CAUSAL]
+
+Enriched Gene Categories (p < 0.05):
+--------------------------------------------------
+  Membrane permeability           fold=1.03  p=0.0000
+  Metabolism                      fold=1.03  p=0.0000
+  Efflux pump                     fold=1.02  p=0.0000
+  Cell wall synthesis             fold=1.02  p=0.0000
+  DNA repair                      fold=1.02  p=0.0000
+  Enzyme degradation              fold=1.01  p=0.0001
+  Regulatory                      fold=1.01  p=0.0001
+  Stress response                 fold=0.97  p=0.0001
+  Biofilm formation               fold=0.94  p=0.0001
+  Target modification             fold=0.92  p=0.0050
+
+============================================================
