@@ -16,6 +16,8 @@ SNP Matrix Construction → Population Structure → Association Testing → Can
 | 2 | `02_population_structure.py` | PCA, hierarchical clustering, FST analysis |
 | 3 | `03_association_testing.py` | Logistic regression GWAS, Manhattan/QQ plots, multiple testing correction |
 | 4 | `04_candidate_genes.py` | Candidate region identification, effect sizes, LD analysis |
+| **Real** | **`download_real_data.py`** | **Download a real *S. pneumoniae* (Maela) dataset: 5,000 SNPs × 100 isolates + binary phenotype + reference GFF** |
+| **Real** | **`real_bacterial_gwas.py`** | **Run the real-data GWAS (QC → PCA → logistic regression + PCs → FDR/Bonferroni → gene annotation + plots)** — see [`RESULTS.md`](RESULTS.md) |
 
 ## Pipeline Details
 
@@ -47,6 +49,28 @@ SNP Matrix Construction → Population Structure → Association Testing → Can
 - Odds ratios and effect sizes for top SNPs
 - LD-like correlation analysis between top SNPs
 - Summary report
+
+## Real-Data Analysis (steps 01–04 on real data)
+
+In addition to the fully simulated pipeline, the repo runs the same GWAS workflow
+on **real** bacterial data:
+
+```bash
+# 1. Download the real S. pneumoniae (Maela) dataset and reference annotation
+python scripts/download_real_data.py
+
+# 2. Run the real-data analysis
+python scripts/real_bacterial_gwas.py
+```
+
+The real dataset is the 100-isolate *Streptococcus pneumoniae* example shipped
+with the `bugwas` R package (Earle et al., Nat Microbiol 2016), based on the
+Maela carriage cohort of Chewapreecha et al. (PLoS Genet 2014); SNP positions
+use the SPN23F / ATCC 700669 reference (NCBI assembly GCF_000026665.1), which
+is downloaded and used for gene annotation of the top hits. Outputs are written
+to `output/real_*.png` and `output/real_*.csv`. Full details, honest
+interpretation, limitations and a "run with your own data" guide are in
+[`RESULTS.md`](RESULTS.md).
 
 ## Skills Demonstrated
 
@@ -90,6 +114,10 @@ python scripts/02_population_structure.py
 python scripts/03_association_testing.py
 python scripts/04_candidate_genes.py
 
+# Real-data analysis (downloads ~500 KB)
+python scripts/download_real_data.py
+python scripts/real_bacterial_gwas.py
+
 # All outputs saved to output/
 ```
 
@@ -103,4 +131,5 @@ All plots and tables are saved to the `output/` directory:
 - `pca_results.csv` — PCA coordinates and variance explained
 - `gwas_results.csv` — Association test results
 - `candidate_genes.csv` — Top candidate regions
+- `real_*.png` / `real_*.csv` — Real-data GWAS figures and tables (see `RESULTS.md`)
 - Multiple `.png` visualization files
